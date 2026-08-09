@@ -8,6 +8,7 @@ return {
       require("mini.icons").mock_nvim_web_devicons()
       require("mini.pairs").setup({})
       require("mini.ai").setup({})
+      require("mini.bufremove").setup({})
       require("mini.surround").setup({
         mappings = {
           add = "ys",
