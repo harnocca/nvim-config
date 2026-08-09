@@ -16,19 +16,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-vim.lsp.config("lua_ls", {
-  settings = {
-    Lua = {
-      diagnostics = {
-        disable = {
-          "undefined-global",
-          "undefined-field",
-        },
-      },
-    },
-  },
-})
-
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "java",
   callback = function(_) require("config.jdtls"):setup() end,
