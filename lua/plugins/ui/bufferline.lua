@@ -28,9 +28,8 @@ return {
         show_close_icon = false,
         diagnostics = "nvim_lsp",
         diagnostics_indicator = function(count, level, _, _)
-          print(level)
           local icons = require("config.icons")
-          local icon = icons.diagnostics[level] or "?"
+          local icon = icons.diagnostics[level] or " "
           return " " .. icon .. count
         end,
       },
