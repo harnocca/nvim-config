@@ -57,3 +57,10 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     if vim.bo.filetype ~= "" then pcall(vim.treesitter.start) end
   end,
 })
+
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+  group = vim.api.nvim_create_augroup("auto-detect-file-change", { clear = true }),
+  callback = function()
+    if vim.bo.buftype ~= "nofile" then vim.cmd("checktime") end
+  end,
+})

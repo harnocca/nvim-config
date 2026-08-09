@@ -39,6 +39,7 @@ vim.g.maplocalleader = ","
 
 -- Save undo history
 vim.opt.undofile = true
+vim.opt.autoread = true
 
 -- Sets how neovim will display certain whitespace characters in the editor
 vim.opt.list = true
