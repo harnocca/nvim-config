@@ -36,9 +36,7 @@ vim.api.nvim_create_autocmd("User", {
   pattern = "OilActionsPost",
   callback = function(event)
     local action = event.data and event.data.actions and event.data.actions[1]
-    if action and action.type == "move" then
-      Snacks.rename.on_rename_file(action.src_url, action.dest_url)
-    end
+    if action and action.type == "move" then Snacks.rename.on_rename_file(action.src_url, action.dest_url) end
   end,
 })
 
@@ -76,11 +74,10 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function(_) require("config.jdtls"):setup() end,
 })
 
-
 -- Make floating windows' background transparent
 if vim.g.transparent then
   vim.api.nvim_create_autocmd("ColorScheme", {
-    group = vim.api.nvim_create_augroup("custom-bg", { clear = true }),
+    group = vim.api.nvim_create_augroup("transparent-bg", { clear = true }),
     callback = function()
       vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
       vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
