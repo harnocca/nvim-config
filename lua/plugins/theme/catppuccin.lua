@@ -7,7 +7,7 @@ return {
 
     opts = {
       flavour = "frappe",
-      transparent_background = true,
+      transparent_background = vim.g.transparent,
       term_colors = true,
       integrations = {
         cmp = true,

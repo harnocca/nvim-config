@@ -28,8 +28,9 @@ vim.opt.breakindent = true -- Ensure consistent indentation when wrapping lines
 vim.opt.smartindent = true -- Indent correctly after {
 vim.opt.termguicolors = true -- Enable 24-bit RGB color in the TUI
 
--- Set NeoVim theme according to P10K theme
+-- Set neovim theme and transparency
 vim.g.global_theme = os.getenv("GLOBAL_THEME") or "catppuccin"
+vim.g.transparent = false
 
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
