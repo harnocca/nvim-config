@@ -5,7 +5,13 @@ return {
   keys = {
     {
       "<C-w>x",
-      function() require("mini.bufremove").delete(0, false) end,
+      function()
+        local buffers = vim.fn.getbufinfo({ buflisted = 1 })
+
+        require("mini.bufremove").delete(0, false)
+
+        if #buffers == 1 then vim.schedule(function() require("snacks").dashboard.open() end) end
+      end,
       desc = "Close Current Buffer",
     },
     {
