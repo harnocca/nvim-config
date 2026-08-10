@@ -43,17 +43,21 @@ function M:setup()
   if paths.dap ~= "" then table.insert(bundles, paths.dap) end
   vim.list_extend(bundles, paths.tests)
 
+  -- Only pass the javaagent when lombok is actually installed,
+  -- an empty `-javaagent:` would abort JDTLS startup
+  local cmd = {
+    "jdtls",
+    "-data",
+    workspace_dir,
+    "--jvm-arg=-Xmx8G",
+    "--jvm-arg=-Xms2G",
+    "--jvm-arg=-XX:+UseG1GC", -- Better for large memory
+  }
+  if vim.uv.fs_stat(paths.lombok) then table.insert(cmd, "--jvm-arg=-javaagent:" .. paths.lombok) end
+
   local config = {
     name = "jdtls",
-    cmd = {
-      "jdtls",
-      "-data",
-      workspace_dir,
-      "--jvm-arg=-Xmx8G",
-      "--jvm-arg=-Xms2G",
-      "--jvm-arg=-XX:+UseG1GC", -- Better for large memory
-      "--jvm-arg=-javaagent:" .. (vim.uv.fs_stat(paths.lombok) and paths.lombok or ""),
-    },
+    cmd = cmd,
 
     init_options = {
       bundles = bundles,
@@ -64,8 +68,8 @@ function M:setup()
         contentProvider = { preferred = "fernflower" },
         sources = {
           organizeImports = {
-            starThreshold = 3,
-            staticStarThreshold = 3,
+            starThreshold = 9999,
+            staticStarThreshold = 9999,
           },
         },
       },

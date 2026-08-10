@@ -7,8 +7,8 @@ vim.opt.softtabstop = 4 -- Number of spaces for backspace
 -- Line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.numberwidth = 4
-vim.signcolumn = "yes"
+vim.opt.numberwidth = 4
+vim.opt.signcolumn = "yes"
 
 -- Enable mouse mode, can be useful for resizing splits
 vim.opt.mouse = "a"
@@ -51,48 +51,8 @@ vim.o.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.scrolloff = 10
 
--- Lazy redraw
-vim.opt.updatetime = 500
-vim.opt.lazyredraw = true
-
--- LSP settings
-
-local icons = require("config.icons")
-
-vim.diagnostic.config({
-  virtual_text = true,
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = icons.diagnostics.error,
-      [vim.diagnostic.severity.WARN] = icons.diagnostics.warn,
-      [vim.diagnostic.severity.HINT] = icons.diagnostics.hint,
-      [vim.diagnostic.severity.INFO] = icons.diagnostics.info,
-    },
-  },
-  update_in_insert = false,
-})
-
-local dap_signs = {
-  DapBreakpoint = { text = "", texthl = "DapBreakpoint" },
-  DapBreakpointCondition = { text = "", texthl = "DapBreakpoint" },
-  DapLogPoint = { text = "", texthl = "DapLogPoint" },
-  DapBreakpointRejected = { text = "", texthl = "DapBreakpoint" },
-  DapStopped = { text = "", texthl = "DapStopped", linehl = "DapStopped" },
-}
-
-for name, config in pairs(dap_signs) do
-  vim.fn.sign_define(name, {
-    text = config.text,
-    texthl = config.texthl,
-    linehl = config.linehl or "",
-    numhl = config.numhl or "",
-  })
-end
-vim.api.nvim_set_hl(0, "DapBreakpoint", { fg = "#993939" })
-vim.api.nvim_set_hl(0, "DapStopped", { fg = "#98c379" })
-
--- Speed up the popup display (default is 4000ms)
-vim.opt.updatetime = 1500
+-- Speed up popup display and CursorHold (default is 4000ms)
+vim.opt.updatetime = 1000
 
 -- Make floating preview rounded :D
 local orig_floating_preview = vim.lsp.util.open_floating_preview

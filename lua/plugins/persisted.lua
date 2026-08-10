@@ -1,5 +1,5 @@
 return {
   "olimorris/persisted.nvim",
-  event = "BufReadPre",
+  event = "VeryLazy",
   opts = {},
 }

@@ -24,8 +24,8 @@ set_key("n", "<M-c>", ":close<CR>", { desc = "Close current window" })
 set_key("t", "<C-k>", "<C-\\><C-n><C-w><C-k>", { desc = "Jump out of terminal" })
 
 -- Move current line up & down
-set_key("n", "<M-j>", "<cmd>m .+1<cr>== ", { desc = "Move Line Down" })
-set_key("n", "<M-k>", "<cmd>m .-2<cr>== ", { desc = "Move Line Up" })
+set_key("n", "<M-j>", "<cmd>m .+1<cr>==", { desc = "Move Line Down" })
+set_key("n", "<M-k>", "<cmd>m .-2<cr>==", { desc = "Move Line Up" })
 
 -- Quick Commands
 set_key("n", "<leader>q", "<cmd>qa<cr>", { desc = "Quit" })

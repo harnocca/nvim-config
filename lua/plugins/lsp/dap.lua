@@ -24,6 +24,26 @@ return {
     local dap = require("dap")
     local dapui = require("dapui")
 
+    -- Debugger signs & highlights (kept together with the DAP config)
+    local dap_signs = {
+      DapBreakpoint = { text = "", texthl = "DapBreakpoint" },
+      DapBreakpointCondition = { text = "", texthl = "DapBreakpoint" },
+      DapLogPoint = { text = "", texthl = "DapLogPoint" },
+      DapBreakpointRejected = { text = "", texthl = "DapBreakpoint" },
+      DapStopped = { text = "", texthl = "DapStopped", linehl = "DapStopped" },
+    }
+
+    for name, sign in pairs(dap_signs) do
+      vim.fn.sign_define(name, {
+        text = sign.text,
+        texthl = sign.texthl,
+        linehl = sign.linehl or "",
+        numhl = sign.numhl or "",
+      })
+    end
+    vim.api.nvim_set_hl(0, "DapBreakpoint", { fg = "#993939" })
+    vim.api.nvim_set_hl(0, "DapStopped", { fg = "#98c379" })
+
     require("mason-nvim-dap").setup({
       ensure_installed = { "python", "codelldb" },
       automatic_installation = true,
