@@ -105,6 +105,13 @@ return {
       desc = "Fuzzily search in current buffer",
     },
     {
+      "<leader>sm",
+      function()
+        Snacks.picker.marks()
+      end,
+      desc = "Search Marks",
+    },
+    {
       "<M-t>",
       function() Snacks.terminal.toggle() end,
       mode = { "n", "t" },
