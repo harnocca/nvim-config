@@ -18,6 +18,11 @@ return {
       "<cmd>BufferLineMoveNext<CR>",
       desc = "Move Buffer Right",
     },
+    {
+      "gb",
+      "<cmd>BufferLinePick<CR>",
+      desc = "Pick buffer",
+    },
   },
   config = function()
     require("bufferline").setup({
