@@ -30,20 +30,31 @@ return {
       desc = "Pick buffer",
     },
   },
-  config = function()
-    require("bufferline").setup({
-      options = {
-        mode = "buffers",
-        separator_style = "slant",
-        show_buffer_close_icons = false,
-        show_close_icon = false,
-        diagnostics = "nvim_lsp",
-        diagnostics_indicator = function(count, level, _, _)
-          local icons = require("config.icons")
-          local icon = icons.diagnostics[level] or " "
-          return " " .. icon .. count
-        end,
-      },
-    })
-  end,
+
+  opts = {
+    options = {
+      mode = "buffers",
+      separator_style = "slant",
+      show_buffer_close_icons = false,
+      show_close_icon = false,
+      diagnostics = "nvim_lsp",
+
+      diagnostics_indicator = function(count, level, _, _)
+        local icons = require("config.icons")
+        local icon = icons.diagnostics[level] or " "
+        return " " .. icon .. count
+      end,
+
+      name_formatter = function(buf)
+        local name = buf.name
+
+        if name:match("^%%3") then
+          local class = name:match("%%28(.+)$")
+          if class then return class end
+        end
+
+        return name
+      end,
+    },
+  },
 }
