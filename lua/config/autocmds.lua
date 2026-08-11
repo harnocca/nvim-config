@@ -60,7 +60,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "gt", function() Snacks.picker.lsp_type_definitions() end, "Go to Type")
     map("n", "gD", function() Snacks.picker.lsp_declarations() end, "Go to Declaration")
     map("n", "gs", function() Snacks.picker.lsp_symbols() end, "Go to Symbols")
-    map("n", "gS", function() Snacks.picker.lsp_workspace_symbols() end, "Go to workspace Symbols")
+    map("n", "gS", function() Snacks.picker.lsp_workspace_symbols() end, "Go to Workspace Symbols")
     map("n", "K", vim.lsp.buf.hover, "Show Documentation")
     map("n", "<leader>r", vim.lsp.buf.rename, "Rename")
     map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Code Actions")

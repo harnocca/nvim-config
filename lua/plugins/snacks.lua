@@ -68,7 +68,7 @@ return {
     {
       "<leader>sg",
       function() Snacks.picker.grep() end,
-      desc = "Search by Grep (Live)",
+      desc = "Search by Grep",
     },
     {
       "<leader>sh",
@@ -112,15 +112,17 @@ return {
       desc = "Search Marks",
     },
     {
+      "<leader>st",
+      function()
+        Snacks.picker.colorschemes()
+      end,
+      desc = "Search Themes",
+    },
+    {
       "<M-t>",
       function() Snacks.terminal.toggle() end,
       mode = { "n", "t" },
       desc = "Toggle Terminal",
-    },
-    {
-      "<leader>dsb",
-      function() Snacks.dashboard.open() end,
-      desc = "Open Dashboard",
     },
   },
 }

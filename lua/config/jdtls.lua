@@ -84,7 +84,7 @@ function M:setup()
       local function map(mode, lhs, rhs, desc) vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc }) end
       map("n", "<leader>xv", jdtls.extract_variable, "Extract Variable")
       map("n", "<leader>xm", jdtls.extract_method, "Extract Method")
-      map("n", "<leader>xo", jdtls.organize_imports, "Organize Imports")
+      map("n", "<C-M-o>", jdtls.organize_imports, "Organize Imports")
     end,
   }
 

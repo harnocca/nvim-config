@@ -25,9 +25,9 @@ return {
       desc = "Move Buffer Right",
     },
     {
-      "gb",
+      "<leader>p",
       "<cmd>BufferLinePick<CR>",
-      desc = "Pick buffer",
+      desc = "Pick Buffer",
     },
   },
 

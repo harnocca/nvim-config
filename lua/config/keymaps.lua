@@ -4,16 +4,16 @@ local set_key = vim.keymap.set
 set_key("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Moving through split windows
-set_key("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-set_key("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-set_key("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-set_key("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+set_key("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the Left Window" })
+set_key("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the Right Window" })
+set_key("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the Lower Window" })
+set_key("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the Upper Window" })
 
 -- Use Alt + arrows to resize windows (can't think of anything better)
 set_key("n", "<M-Up>", ":resize +2<CR>", { desc = "Increase height of current window" })
 set_key("n", "<M-Down>", ":resize -2<CR>", { desc = "Decrease height of current window" })
-set_key("n", "<M-Left>", ":vertical resize -2<CR>", { desc = "Increase width of current window" })
-set_key("n", "<M-Right>", ":vertical resize +2<CR>", { desc = "Decrease width of current window" })
+set_key("n", "<M-Right>", ":vertical resize -2<CR>", { desc = "Increase width of current window" })
+set_key("n", "<M-Left>", ":vertical resize +2<CR>", { desc = "Decrease width of current window" })
 
 -- Split window: = is horizontal and "" is vertical && c for close
 set_key("n", '<M-">', ":vsplit<CR>", { desc = "Vertical Split" })
@@ -21,7 +21,7 @@ set_key("n", "<M-=>", ":split<CR>", { desc = "Horizontal Split" })
 set_key("n", "<M-c>", ":close<CR>", { desc = "Close current window" })
 
 -- Jump back to workspace without exiting terminal
-set_key("t", "<C-k>", "<C-\\><C-n><C-w><C-k>", { desc = "Jump out of terminal" })
+set_key("t", "<C-k>", "<C-\\><C-n><C-w><C-k>", { desc = "Jump up from terminal" })
 
 -- Move current line up & down
 set_key("n", "<M-j>", "<cmd>m .+1<cr>==", { desc = "Move Line Down" })
