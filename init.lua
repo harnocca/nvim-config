@@ -1,3 +1,6 @@
+-- Enable UI 2
+require('vim._core.ui2').enable({ enable = true })
+
 -- Import Custom Settings
 require("config.options")
 require("config.autocmds")
