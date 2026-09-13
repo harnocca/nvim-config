@@ -14,6 +14,7 @@ A minimal Neovim setup built around [lazy.nvim](https://github.com/folke/lazy.nv
 |------|------------------|
 | `lua/config/` | Options, keymaps, autocmds, jdtls setup |
 | `lua/plugins/` | Plugin specs, organized by area (`ui/`, `lsp/`, `theme/`) |
+| `after/lsp/` | Per-server LSP overrides (one file per server) |
 
 ## Usage
 
@@ -21,4 +22,4 @@ A minimal Neovim setup built around [lazy.nvim](https://github.com/folke/lazy.nv
 - Theme: set `GLOBAL_THEME=catppuccin|gruvbox` (defaults to `catppuccin`).
 - `:Lazy` to manage plugins, `:Mason` to install LSP/DAP/formatters, `:checkhealth` to verify.
 
-Find the full keybind reference in `lua/config/keymaps.lua` and the per-plugin specs under `lua/plugins/`.
+Find the full keybind reference in `lua/config/keymaps.lua`, per-LSP tweaks in `after/lsp/`, and plugin specs under `lua/plugins/`.
